@@ -48,20 +48,59 @@
       color: #555;
       text-align: center;
     }
+    select {
+      background-color: #0a1e3f;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Loyalta CRM</h1>
-    <p class="tagline">Building Loyalty, Accelerating Growth</p>
+    <h1 id="site-title">Loyalta CRM</h1>
+    <p class="tagline" id="tagline">Building Loyalty, Accelerating Growth</p>
+
+    <!-- Language Selector -->
+    <select id="language-selector">
+      <option value="en">English</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
   </header>
+  
   <main>
-    <h2>Welcome to Loyalta CRM</h2>
-    <p>We are your strategic partner in managing customer relationships more effectively and sustainably.</p>
-    <a href="#contact" class="button">Contact Us</a>
+    <h2 id="welcome-title">Welcome to Loyalta CRM</h2>
+    <p id="welcome-message">We are your strategic partner in managing customer relationships more effectively and sustainably.</p>
+    <a href="#contact" class="button" id="contact-btn">Contact Us</a>
   </main>
+  
   <footer>
-    &copy; 2025 Loyalta CRM. All rights reserved.
+    <p id="footer-text">&copy; 2025 Loyalta CRM. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('language-selector').addEventListener('change', function() {
+      var lang = this.value;
+
+      // Change text content based on language
+      if (lang === 'id') {
+        document.getElementById('site-title').textContent = 'Loyalta CRM';
+        document.getElementById('tagline').textContent = 'Membangun Loyalitas, Meningkatkan Pertumbuhan';
+        document.getElementById('welcome-title').textContent = 'Selamat datang di Loyalta CRM';
+        document.getElementById('welcome-message').textContent = 'Kami adalah mitra strategis dalam mengelola hubungan pelanggan dengan lebih efektif dan berkelanjutan.';
+        document.getElementById('contact-btn').textContent = 'Hubungi Kami';
+        document.getElementById('footer-text').textContent = '© 2025 Loyalta CRM. Semua hak cipta dilindungi.';
+      } else {
+        document.getElementById('site-title').textContent = 'Loyalta CRM';
+        document.getElementById('tagline').textContent = 'Building Loyalty, Accelerating Growth';
+        document.getElementById('welcome-title').textContent = 'Welcome to Loyalta CRM';
+        document.getElementById('welcome-message').textContent = 'We are your strategic partner in managing customer relationships more effectively and sustainably.';
+        document.getElementById('contact-btn').textContent = 'Contact Us';
+        document.getElementById('footer-text').textContent = '© 2025 Loyalta CRM. All rights reserved.';
+      }
+    });
+  </script>
 </body>
 </html>
